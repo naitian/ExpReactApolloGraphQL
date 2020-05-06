@@ -4,8 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "dev:client": "parcel client/index.html --out-dir dist/client",
+    "dev:server": "nodemon --exec 'NODE_ENV=development parcel build server/index.js --no-minify --out-dir dist/server --target node && node dist/server/index.js' --watch server",
+    "build:client": "parcel build client/index.html --out-dir dist/client",
+    "build:server": "parcel build server/index.js --out-dir dist/server --target node",
+    "build": "yarn run build:client && yarn run build:server"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -16,13 +19,23 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
+    "nodemon": "^2.0.3",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@apollo/react-ssr": "^3.1.5",
+    "apollo-boost": "^0.4.7",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "html-to-react": "^1.4.2",
+    "node-fetch": "^2.6.0",
     "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "prop-types": "^15.7.2",
+    "react": ">=15",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
   }
 }
