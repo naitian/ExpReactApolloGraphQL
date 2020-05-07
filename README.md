@@ -7,8 +7,15 @@ installed. Then, in your cloned repository:
 
 ```
 yarn install
-yarn run dev:server
+yarn run dev:server  # starts the express server on localhost:3000 (hopefully)
 ```
+
+Alternatively, to serve just the client (no SSR):
+
+```
+yarn run dev:client  # starts server on localhost:1234
+```
+
 
 ## Parts
 
